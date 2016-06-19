@@ -1,0 +1,29 @@
+{
+  "name": "js-channel",
+  "version": "1.0.0",
+  "description": "jschannel by mozilla published on npm & bower",
+  "main": "src/jschannel.js",
+  "scripts": {
+    "build": ":",
+    "test": ":",
+    "release": "wnpm-release; bower-auto-release",
+    "postpublish": "rm -f npm-shrinkwrap.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wix/jschannel.git"
+  },
+  "keywords": [],
+  "author": "Ofir Dagan <ofird@wix.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "bower-auto-release": "*",
+    "wnpm-ci": "*"
+  },
+  "dependencies": {
+  },
+  "private": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
