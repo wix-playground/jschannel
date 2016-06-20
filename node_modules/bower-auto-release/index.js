@@ -7,9 +7,9 @@ var bower = require('bower');
 require('child_process')
   .spawn(__dirname + '/release.sh', [packageJson.version, workingDir], {stdio: 'inherit'})
   .on('close', function () {
-    try {
-      bower.commands.info(bowerJson.name);
-    } catch (error) {
-      bower.commands.register(bowerJson.name, process.env.GIT_REMOTE_URL);
-    }
+    bower.commands.lookup(bowerJson.name).on('end', function(result) {
+      if(!result) {
+        bower.commands.register(bowerJson.name, process.env.GIT_REMOTE_URL);
+      }
+    });
   });
