@@ -1,3 +1,0 @@
-interface IComponentChangeEvent {
-    event: JQueryEventObject;
-}
