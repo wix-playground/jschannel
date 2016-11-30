@@ -1,0 +1,3 @@
+interface IWixPaymentCreditCardFormController {
+    expirationDate: IExpirationDate;
+}

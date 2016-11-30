@@ -1,0 +1,10 @@
+$hotels-cc-page-container-border-color: #dce5e9;
+
+.credit-card-form-container {
+  border: solid 1px $hotels-cc-page-container-border-color;
+  border-bottom: 0;
+
+  .submit-wrap {
+    margin: 0;
+  }
+}

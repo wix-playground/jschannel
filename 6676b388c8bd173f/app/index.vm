@@ -1,0 +1,105 @@
+<!doctype html>
+<!-- #if( false )
+  Prerequisites from server model:
+  --------------------------------
+  ${locale}, ${debug}, ${experiments},
+  ${newRelicEndUserHeader}, ${newRelicEndUserFooter}
+  ${clientTopology.siteGeneratorStaticsMetadataStaticsUrl},
+  ${clientTopology.staticBaseUrl},
+
+  More details at: http://kb.wixpress.com/display/dashboard/How+to+integrate+server+with+index.vm
+#end -->
+<!--
+  #set( $staticsUrl = $clientTopology.siteGeneratorStaticsMetadataStaticsUrl )
+  #set( $staticBaseUrl = $clientTopology.staticBaseUrl )
+-->
+<html ng-app="siteGeneratorStaticsMetadataApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>siteGeneratorStaticsMetadata</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="origin">
+    <link type="image/png" href="//www.wix.com/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="${staticBaseUrl}services/third-party/fonts/Helvetica/fontFace.css">
+    <!-- process-tags prefix('${staticsUrl}') -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- end-process-tags -->
+    ${newRelicEndUserHeader}
+  </head>
+  <body>
+
+    <!-- Add your site or application content here -->
+    <site-generator-statics-metadata-app name="'siteGeneratorStaticsMetadataApp'"></site-generator-statics-metadata-app>
+
+
+    <!-- process-tags prefix('${staticsUrl}') -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-i18n/angular-locale_${locale}.js"></script>
+    <script src="bower_components/xml2js/lib/xml2js.js"></script>
+    <script src="bower_components/jszip/dist/jszip.js"></script>
+    <script src="bower_components/jszip-utils/dist/jszip-utils.js"></script>
+    <!-- build:js scripts/modules.js -->
+    <script src="bower_components/es6-shim/es6-shim.js"></script>
+    <script src="bower_components/uri.js/src/URI.js"></script>
+    <script src="bower_components/wix-angular/dist/wix-angular.js"></script>
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+
+    <script src="scripts/models/content-element.js"></script>
+    <script src="scripts/models/layout-preset.js"></script>
+    <script src="scripts/models/static-data-handler.js"></script>
+    <script src="scripts/models/theme.js"></script>
+    <script src="scripts/models/vertical-default-value.js"></script>
+
+    <script src="scripts/statics/ContentElements.js"></script>
+    <script src="scripts/statics/LayoutPresets.js"></script>
+    <script src="scripts/statics/Themes.js"></script>
+    <script src="scripts/statics/VerticalDefaultValues.js"></script>
+
+    <script src="views/site-generator-statics-metadata-app.html.js"></script>
+    <script src="scripts/locale/messages_en.js"></script>
+    <script src="scripts/components/site-generator-statics-metadata-app.js"></script>
+    <script src="scripts/services/metadata-reader.js"></script>
+    <!-- endbuild --><!-- scripts -->
+    <!-- build:js({.tmp,app}) scripts/test-scripts.js -->
+    <script src="scripts/statics/ContactProtoTypeLayoutElementsBase64.js"></script>
+    <script src="scripts/statics/LayoutElementsBase64.js"></script>
+    <!-- endbuild -->
+    <!-- build:locale({.tmp,app}) scripts/locale/messages_${locale}.js -->
+    <script src="scripts/locale/messages_${locale}.js"></script>
+    <!-- endbuild -->
+    <!-- end-process-tags -->
+
+    <!-- #if( ${enableMocks} ) -->
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+
+    <!-- build:js(.tmp) scripts/mocks.js -->
+    <script src="test/mock/server-api.js"></script>
+    <!-- endbuild -->
+
+    <script>
+      /* jshint ignore:start */
+      if ('${enableMocks}' === 'true') {
+        angular.module('siteGeneratorStaticsMetadataApp').requires.push('siteGeneratorStaticsMetadataAppMocks');
+      }
+    </script>
+    <!-- #end -->
+    <script>
+      angular.module('siteGeneratorStaticsMetadataApp').config(function (wixAngularTopologyProvider, experimentManagerProvider) {
+        wixAngularTopologyProvider.setStaticsUrl('${staticsUrl}');
+        experimentManagerProvider.setExperiments(JSON.parse('${experiments}'));
+      });
+    </script>
+
+    ${newRelicEndUserFooter}
+
+  </body>
+</html>

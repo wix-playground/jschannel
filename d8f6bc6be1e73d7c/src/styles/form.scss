@@ -1,0 +1,117 @@
+@import 'variables';
+
+$form-label-transition: all $transition-duration $transition-easing;
+$form-label-font-family: $font-base;
+$form-label-font-size: 24px;
+$form-label-font-size_active: 14px;
+$form-label-color: #43515c;
+$form-label-height: $input-height;
+$form-label-height_active: 20px;
+$form-row-spacing-top: $form-label-height_active;
+$form-button-previous-font-size: $button-font-size;
+$form-button-previous-font-family: $font-base;
+$form-button-previous-spacing-horizontal: nth($button-padding, 1);
+$form-error-content-background: #ffffff;
+$form-error-content-box-shadow: 0 0 12px 0 rgba(0, 0, 0, .07);
+$form-error-content-border-radius: 9px;
+$form-error-content-color: #66737c;
+$form-error-content-font-size: 14px;
+$form-error-content-spacing: 12px 20px;
+$form-error-icon-size: 35px;
+$form-error-icon-right: 6px;
+$form-error-caret-size: 12px;
+$form-error-caret-right: $form-error-icon-right + $form-error-caret-size;
+$form-error-caret-box-shadow: 3px 3px 3px -2px rgba(0, 0, 0, 0.07);
+$form-error-spacing-content-icon: 13px;
+
+.form {
+  margin: 0;
+}
+
+.form-row {
+  position: relative;
+  padding-top: $form-row-spacing-top;
+  margin-bottom: 30px;
+
+  .label {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: $form-label-height_active;
+    color: $form-label-color;
+    line-height: $form-label-height;
+    font-family: $form-label-font-family;
+    font-size: $form-label-font-size;
+    text-align: left;
+    transition: $form-label-transition;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  &[data-active] .label {
+    top: 0;
+    font-size: $form-label-font-size_active;
+    line-height: 1;
+  }
+
+  .error {
+    pointer-events: none;
+    position: absolute;
+    top: -25px;
+    right: 0;
+    background: $form-error-content-background;
+    box-shadow: $form-error-content-box-shadow;
+    border-radius: $form-error-content-border-radius;
+    padding: $form-error-content-spacing;
+    color: $form-error-content-color;
+    font-size: $form-error-content-font-size;
+
+    &:before,
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+    }
+
+    // caret
+    &:before {
+      width: $form-error-caret-size;
+      height: $form-error-caret-size;
+      background: $form-error-content-background;
+      transform: rotate(45deg);
+      bottom: $form-error-caret-size / -2;
+      right: $form-error-caret-right;
+      box-shadow: $form-error-caret-box-shadow;
+    }
+
+    // icon
+    &:after {
+      background: url('assets/error.svg') no-repeat;
+      background-size: contain;
+      width: $form-error-icon-size;
+      height: $form-error-icon-size;
+      top: calc(100% + #{$form-error-spacing-content-icon});
+      right: $form-error-icon-right;
+    }
+
+    &.for-select {
+      right: 25px;
+    }
+  }
+}
+
+.form-actions {
+  overflow: auto;
+
+  .button-previous {
+    float: left;
+    font-size: $button-font-size;
+    font-family: $font-base;
+    padding: $form-button-previous-spacing-horizontal 0;
+    text-decoration: none;
+  }
+
+  .button-next{
+    float: right;
+  }
+}

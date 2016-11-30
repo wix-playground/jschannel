@@ -1,0 +1,17 @@
+
+$bg-color: #ffffff;
+
+body {
+  background-color: $bg-color;
+}
+
+.wix-payment-button-primary {
+  float: left;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  border-radius: 0;
+}
+
+.wix-payment-terms-and-conditions {
+  padding-bottom: 20px;
+}

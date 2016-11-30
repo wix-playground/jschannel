@@ -1,0 +1,169 @@
+@import 'lib/Base';
+
+$header-spacing-horizontal: 55px;
+$header-spacing-horizontal_mobile: 15px;
+$header-spacing-headline-subtext: 20px;
+$headline-title-color: #363636;
+$headline-title-font-family: $font-helvetica75;
+$headline-title-font-size: 64px;
+$subtext-title-font-size: 24px;
+$subtext-title-font-family: $font-base;
+
+.form {
+  position: relative;
+}
+
+.header {
+  margin: $header-spacing-horizontal 0 ($header-spacing-horizontal / 3) 0;
+
+  @include mobile {
+    margin-top: $header-spacing-horizontal_mobile;
+  }
+}
+
+.headline {
+  color: $headline-title-color;
+  font-family: $headline-title-font-family;
+  font-size: $headline-title-font-size;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+
+  @include mobile {
+    font-size: $headline-title-font-size * 0.5;
+  }
+}
+
+.subtext {
+  font-size: $subtext-title-font-size;
+  font-family: $subtext-title-font-family;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.headline + .subtext {
+  margin-top: $header-spacing-headline-subtext;
+}
+
+.stepWrapper {
+  border: none;
+  padding: 0;
+  margin: none;
+  text-align: left;
+
+  > .subtext {
+    padding-bottom: 2.5em;
+    margin: 0 auto;
+  }
+  > main > div {
+    margin-bottom: 2.5em;
+  }
+}
+
+.stepWrapper2 {
+  @extend .stepWrapper;
+  label {
+    font-size: 16px;
+  }
+}
+
+.footer {
+  text-align: center;
+  position: relative;
+}
+
+.footerButtons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.footerPost {
+  text-align: left;
+  margin-top: 0;
+}
+
+.footerPostWithSpace {
+  @extend .footerPost;
+  margin-top: 2em;
+  line-height: 1.4;
+}
+
+.footerPostError {
+  @extend .footerPost;
+  color: $color-error;
+  line-height: 1.4;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  right: 0;
+  bottom: -1.4em;
+}
+
+.checkboxes {
+  position: relative;
+  padding-top: 1em;
+  > label {
+    @include label();
+  }
+  > div {
+    margin-bottom: 0.5em;
+  }
+}
+
+.body {
+  position: relative;
+  display: block;
+}
+
+.loading {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: white;
+  font-size: $input-font-size;
+  font-weight: normal;
+  padding-top: 3em;
+  text-align: center;
+}
+
+.output {
+  color: $color-error;
+}
+
+.footerLinks {
+  $height: 28px;
+  font-size: 14px;
+  height: $height;
+  line-height: $height;
+  margin: 150px 0;
+
+  > a, > span {
+    line-height: $height;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  > a {
+    text-decoration: none;
+    color: #20303c;
+  }
+  > span {
+    height: $height;
+    width: 1px;
+    overflow: hidden;
+    background: rgb(149,156,162);
+    margin: 0 2.5em;
+  }
+
+  @include mobile() {
+    font-size: 12px;
+    margin: 100px 0;
+    > span {
+      margin: 0 1.5em;
+    }
+  }
+}

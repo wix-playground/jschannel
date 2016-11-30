@@ -1,0 +1,52 @@
+.container(ng-controller="PaymentController as payment")
+  .resize-element(watch-element-resize on-size-change="payment.sizeChanged(height)")
+    #generalError.card-validation-error(ng-show="payment.submitError" ng-class="{'hidden': payment.submittingForm}")
+      %i.payment-svg-font-icons-general-error
+      %h3.card-validation-error-title {{'payment.submit_error' | translate}}
+    %form.payment-form(id="paymentForm" accessible-form name="payment.paymentForm" ng-submit="payment.paymentForm.$valid && !payment.submittingForm && payment.submitForm()" novalidate)
+      %fieldset
+        .form-row.payment-method
+          .field-input
+            %label.form-label(for="cardNumber") {{'payment.cardNumber' | translate}}
+            .input-container
+              %input#cardNumber(autocomplete="off" focus name="cardNumber" type="text" pattern="[0-9]*" ng-model="payment.creditCardNumber" data-hook="payment-iframe-card-number" required credit-card-validator card-error="payment.cardError()" ng-model-options="{ updateOn: 'blur' }")
+          #cardNumberError.invalid-form-input-container(data-hook="hidden-error-message" ng-show="payment.paymentForm.cardNumber.$error.luhn_check || (payment.paymentForm.cardNumber.$error.required && (payment.paymentForm.$submitted || payment.paymentForm.cardNumber.$touched))")
+            %i.payment-svg-font-icons-cross.invalid-form-input-icon
+            %span.invalid-form-input-label {{'payment.cardNumberError-luhn' | translate}}
+        .form-row.expiration-row
+          .field-input.expiration-date(id="expirationDate")
+            %label.form-label {{'payment.expirationDateLabel' | translate}}
+            .expiration-date(name="expirationDate" expiration-date ng-model="payment.expirationDate")
+          #expirationDateError.invalid-form-input-container(data-hook="hidden-error-message" ng-show="payment.paymentForm.expirationDate.$error.future_expiration_date" ng-if="payment.paymentForm.$submitted || payment.paymentForm.expirationDate.$dirty")
+            %i.payment-svg-font-icons-cross.invalid-form-input-icon
+            %span.invalid-form-input-label {{'payment.expirationDateError' | translate}}
+        .form-row
+          .field-input
+            %label.form-label(for="securityNumber") {{'payment.securityNumerLabel' | translate}}
+            .input-container
+              %input.input-short(type="text" pattern="[0-9]*" ng-minlength=3 ng-maxlength=4 required name="securityNumber" id="securityNumber" ng-model="payment.securityNumber" data-hook="payment-iframe-security-number" placeholder="123")
+              %i#securityNumberHelpIcon(class="payment-svg-font-icons-question security-hint" ng-mouseenter="payment.hover = true;payment.securityHover()" ng-mouseleave="payment.hover = false;")
+                .security-code-tooltip(id="securityNumberHelpIconTooltip" ng-class="{'active': payment.hover, 'inactive': !payment.hover}")
+                  %h4.security-tooltip-header {{'payment.creditCardType' | translate}}
+                  %p.security-tooltip-subtitle {{"payment.threeDigits" | translate}}
+                  %img.cc-tooltip-img(ng-src="{{payment.staticsBaseUrl}}images/cc-cvv.svg" alt="{{'payment.creditCardTypeInfo' | translate}}")
+                  %h4.security-tooltip-header {{"payment.americanExpress" | translate}}
+                  %p.security-tooltip-subtitle {{"payment.fourDigits" | translate}}
+                  %img.cc-tooltip-img(ng-src="{{payment.staticsBaseUrl}}images/am-ex-cvv.svg" alt="{{'payment.americanExpressSecurityCodeInfo' | translate}}")
+          #securityNumberError.invalid-form-input-container(data-hook="hidden-error-message" ng-show="!payment.paymentForm.securityNumber.$valid" ng-if="payment.paymentForm.$submitted || payment.paymentForm.securityNumber.$touched")
+            %i.payment-svg-font-icons-cross.invalid-form-input-icon
+            %span.invalid-form-input-label {{'payment.securityCodeError' | translate}}
+        .form-row
+          .field-input
+            %label.form-label(for="cardHolderName") {{'payment.holderName' | translate}}
+            .input-container
+              %input(type="text" name="cardHolderName" ng-model="payment.holderName" required id="cardHolderName" data-hook="payment-iframe-card-holder-name")
+          #nameOnCardError.invalid-form-input-container(data-hook="hidden-error-message" ng-show="payment.paymentForm.cardHolderName.$error.required" ng-if="payment.paymentForm.$submitted || payment.paymentForm.cardHolderName.$touched")
+            %i.payment-svg-font-icons-cross.invalid-form-input-icon
+            %span.invalid-form-input-label {{'payment.nameOnCardError' | translate}}
+      .checkout-control
+        %button.button-primary.wcsh-next-button(id="submit-button" data-hook="payment-iframe-submit" ng-disabled="!!payment.submittingForm || (!payment.termsAndConditionsChecked && payment._getTermsAndConditionsFlag())" ng-class="{'is-button-loading': payment.submittingForm}") {{'payment.submitPayment' | translate}}
+        %span.cart-charge-warning.last-line {{'payment.cardWillBeCharged' | translate}}
+    .wix-payment-terms-and-conditions(ng-if="payment._getTermsAndConditionsFlag()")
+      %input.wix-payment-terms-and-conditions-cb(type="checkbox" id="wix-payment-terms-and-conditions-cb" ng-model="payment.termsAndConditionsChecked"  ng-init="payment.termsAndConditionsChecked=true")
+      %label(for="wix-payment-terms-and-conditions") {{'payment.termsAndConditionsLabel' | translate}}

@@ -1,0 +1,74 @@
+{
+  "name": "marketing-campaign-creative-mornings",
+  "version": "1.0.0",
+  "description": "marketing-campaign-creative-mornings",
+  "homepage": "",
+  "private": true,
+  "author": {
+    "name": "Iurii Komarov",
+    "email": "iuriik@wix.com",
+    "url": ""
+  },
+  "scripts": {
+    "start": "wix-node-build start",
+    "build": "wix-node-build lint && wix-node-build build",
+    "test": "wix-node-build test",
+    "release": ":"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "react-addons-test-utils": "^15.3.2",
+    "chai": "^3.5.0",
+    "enzyme": "^2.3.0",
+    "jsdom-global": "^2.1.0",
+    "nock": "^8.0.0",
+    "wix-bootstrap-testkit": "latest",
+    "wix-config-emitter": "latest",
+    "wix-node-build": "latest"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.9.1",
+    "connect-timeout": "^1.7.0",
+    "es6-promise": "^4.0.5",
+    "express": "^4.13.4",
+    "formidable": "latest",
+    "google-auth-library": "^0.9.9",
+    "googleapis": "^14.2.0",
+    "i18next": "^3.4.3",
+    "i18next-xhr-backend": "^1.2.0",
+    "isomorphic-fetch": "^2.2.1",
+    "js-cookie": "^2.1.3",
+    "media-platform-js-sdk": "latest",
+    "multer": "^1.2.0",
+    "normalize.css": "^5.0.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-i18next": "^1.10.1",
+    "react-redux": "^4.4.5",
+    "react-select": "^1.0.0-rc.2",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "request": "^2.78.0",
+    "reset.css": "^2.0.2",
+    "web-bi-logger": "^1.0.303",
+    "wix-bootstrap-ng": "latest",
+    "wix-bootstrap-rpc": "latest",
+    "wix-express-rendering-model": "latest",
+    "wix-express-timeout": "^1.0.435",
+    "wix-fetch-utils": "latest",
+    "wix-renderer": "latest",
+    "wix-run-mode": "latest"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015",
+      "stage-0"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "wix/react"
+  }
+}

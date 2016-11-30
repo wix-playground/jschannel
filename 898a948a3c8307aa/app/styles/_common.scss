@@ -1,0 +1,186 @@
+$btn-color-disabled: #d2d2d2;
+$input-background-color: #ffffff;
+$border-color: #dce5e9;
+$btn-color: #3899ec;
+
+@mixin wcsh-wix-terms-and-conditions() {
+
+  .wix-payment-terms-and-conditions {
+    display: inline-block;
+    padding-left: 26px;
+    width: 500px;
+
+    label {
+      user-select: none;
+    }
+
+    .wix-payment-terms-and-conditions-label {
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+  }
+
+  .wix-payment-terms-and-conditions-cb {
+    position: absolute;
+    left: 20px;
+    -webkit-appearance: none;
+    border: 0 none;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+
+    + .payment-svg-font-icons-check {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      position: relative;
+      vertical-align: middle;
+      display: inline-block;
+      font-size: 16px;
+
+      background: $input-background-color;
+      border: solid 1px $border-color;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .wix-payment-terms-and-conditions-cb:checked + .payment-svg-font-icons-check:before {
+    color: $btn-color;
+    speak: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    background: transparent;
+  }
+}
+
+@mixin wcsh-security-tooltip-wrapper($wrapper-margin) {
+
+  $non-active-tooltip-color: #162d3d;
+  $active-tooltip-color: #3899ec;
+
+  .wcsh-security-tooltip-wrapper {
+
+    margin: $wrapper-margin;
+
+    .wcsh-security-tooltip-question-mark > svg {
+      width: 16px;
+      height: 16px;
+      font-family: HelveticaNeueW01-75Bold, HelveticaNeueW02-75Bold, HelveticaNeueW10-75Bold, sans-serif;
+      cursor: pointer;
+      fill: $non-active-tooltip-color;
+      stroke: $non-active-tooltip-color;
+    }
+
+    .wcsh-security-tooltip-question-mark > svg:hover {
+      fill: $active-tooltip-color;
+      stroke: $active-tooltip-color;
+    }
+  }
+}
+
+@mixin wcsh-security-code-tooltip {
+
+  $tooltip-color: #2b5672;
+  $tooltip-border: #d8d8d8;
+  $payment-title-color: #20455e;
+  $wix-payment-titles-font: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma, sans-serif;
+
+  .security-code-tooltip {
+    background-color: rgba(255, 255, 255, .95);
+    box-shadow: 0 0 11px 0 rgba(0, 0, 0, .21);
+    width: 270px;
+    padding: 26px;
+    position: absolute;
+    top: -16px;
+    right: 37px;
+    margin-left: 15px;
+    border: 1px $tooltip-border solid;
+    z-index: 1000;
+    font-size: 14px;
+    color: $tooltip-color;
+    font-style: normal;
+    border-radius: 6px;
+    @media only screen and (max-device-width: 1024px) {
+      width: 185px;
+      right: 37px;
+      top: 0;
+    }
+
+    .security-tooltip-header {
+      font-size: 16px;
+      line-height: 20px;
+      text-align: left;
+      color: $payment-title-color;
+      font-family: $wix-payment-titles-font;
+      //transform: scaleX(1.0108);
+      margin: 0 0 5px;
+    }
+
+    &:before {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      border: 10px solid transparent;
+      border-bottom-color: $tooltip-border;
+      top: 26px;
+      right: -20px;
+      transform: rotate(90deg);
+      @media only screen and (max-device-width: 1024px) {
+        top: 11px;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      border: 10px solid transparent;
+      border-bottom-color: $input-background-color;
+      top: 26px;
+      right: -19px;
+      transform: rotate(90deg);
+      @media only screen and (max-device-width: 1024px) {
+        top: 11px;
+      }
+    }
+
+    .cvv-cc,
+    .cvv-amex {
+      width: 57px;
+      height: 40px;
+      margin-right: 10px;
+      margin-top: 16px;
+      display: inline-block;
+      font-size: 40px;
+      vertical-align: top;
+    }
+
+    .cvv-cc {
+      background: url('../images/cvv-cc.svg') no-repeat;
+    }
+
+    .cvv-amex {
+      background: url('../images/cvv-amex.svg') no-repeat;
+    }
+
+    .security-tooltip-subtitle {
+      display: inline-block;
+      width: 190px;
+      vertical-align: top;
+      @media only screen and (max-device-width: 1024px) {
+        width: 114px;
+      }
+    }
+  }
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="fonts/font.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+	<header id="header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="logo">
+						<a href="#"><img src="images/logo.png" alt="img" class="img-responsive" /></a>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="user-login">
+						<a href="#"><img src="images/user.png" alt="img" class="img-responsive" /></a>
+						<p>Me</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<section id="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-8 col-content">
+					<div class="wrap-content">
+						<div class="message-arrow">
+							<div class="mg-text">
+								<h3>Welfare Massages</h3>
+								<p>Send a preset massage or you can edit and customize each.</p>
+							</div>
+						</div>
+						
+						<div class="row gallery-details" id="gallery-items-noam" name="gallery-items-noam">
+							<div class="col-md-3 col-sm-6">
+								<div class="gallery-item gallery-add">
+									<div class="gl-img">
+										<img src="images/gallery_add.png" alt="img" class="img-responsive img-gl" />
+										<div class="add-caption">
+											<a href="#" onclick='openCustomMessages();'>
+												<img src="images/plus.png" alt="img" class="img-responsive" />
+												<p>Add New Message</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-sidebar">
+					<div class="wrap-sidebar">
+						<div class="sidebar-item text-center">
+							<div class="text-center">
+								<img src="images/iphone.png" alt="img" class="img-responsive" />
+							</div>
+							<a href="#" class="btn button-1">Preview Push Notification</a>
+						</div>
+						
+						<div class="sidebar-item">
+							<h3 class="title">Recipiant</h3>
+							<div class="form-group">
+								<label>Select recipient group</label>
+								<select name="recipient_group" class="form-control" id="recipient_group">
+									<option>Select Recipient Group</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="specifics">Send to specifics persond</label>
+								<input type="text" class="form-control" id="specifics" placeholder="e.g., mail@wix.com">
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<input type="checkbox" name="via_email" checked="" />
+									<label>Send via email also</label>
+								</div>
+							</div>
+							<div class="form-group text-center">
+								<a href="#" onclick='sendMessage();' class="btn button-2">Send Massage</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	
+	<script type="text/javascript">
+		// Select option
+		$('select').selectpicker({
+		  style: 'btn-default',
+		  size: 4
+		});
+		
+		// Sticky sidebar
+		$(document).ready(function() {
+		var stickyNavTop = $('.wrap-sidebar').offset().top;
+		 
+		var stickyNav = function(){
+		var scrollTop = $(window).scrollTop();
+			  
+		if (scrollTop > stickyNavTop) { 
+			$('.wrap-sidebar').addClass('sticky-sb');
+		} else {
+			$('.wrap-sidebar').removeClass('sticky-sb'); 
+		}
+		};
+		 
+		stickyNav();
+
+		var audience = [
+			"WixWiz", "WixBlogs", "WixCloud", "WixBooking", "UXStudio", "TigersGroup", "StudioMarketing", "Studio",
+			"QAUkraine", "Product", "PremiumILGang", "PR", "Photographs", "Onboarding", "MobileApps", "Media",
+			"MarketingIL", "Languages", "HRGlobal", "HelpdeskIL", "FrontGuildLT", "ESPPEnrollment", "Engineering",
+			"EmailMarketing", "WixStoresIL", "ConsumerExperience", "Core3",
+			"TeamContent", "ContentAppMarketTeam", "CI", "Cashier", "BillingTeam", "AllCallCenter",
+			"AllSupport", "AngularGuild", "AllIsrael", "WixLife"
+		];
+
+		var select = document.getElementById("recipient_group");
+		audience.forEach(function(a) {
+			var opt = document.createElement("option");
+			opt.id = a;
+			opt.value = a;
+			opt.textContent = a;
+			select.appendChild(opt);
+		});
+		$('#recipient_group').selectpicker('refresh');
+
+		 
+		$(window).scroll(function() {
+			stickyNav();
+		});
+		});
+
+        Date.prototype.addHours = function(h) {
+            this.setTime(this.getTime() + (h*60*60*1000));
+            return this;
+        };
+
+        Date.prototype.addMinutes = function(m) {
+            this.setTime(this.getTime() + (m*60*1000));
+            return this;
+        };
+
+		function addTemplate(template) {
+			var div = document.getElementById("gallery-items-noam");
+
+			var inner0 = document.createElement("div");
+			inner0.className = "col-md-3 col-sm-6";
+
+			var inner1 = document.createElement("div");
+			inner1.className = "gallery-item";
+			inner1.id = "gallery-item" + template.id;
+
+			var inner2 = document.createElement("div");
+			inner2.className = "gl-img";
+			var img = document.createElement("img");
+			img.src = template.image;
+			img.className = "img-responsive img-gl";
+			img.alt = "img";
+
+			var inner3 = document.createElement("div");
+			inner3.className = "gl-caption";
+
+			var p1 = document.createElement("p");
+			var butt1 = document.createElement("a");
+			butt1.className = "btn btn-choose";
+			butt1.textContent = "Choose";
+			butt1.onclick = function () { unselectAll(); selectTemplateWith(template.id) };
+
+			var p2 = document.createElement("p");
+			var butt2 = document.createElement("a");
+			butt2.className = "btn btn-edit";
+			butt2.textContent = "Edit";
+			butt2.onclick = function () { openCustomMessages(); };
+
+			var title = document.createElement("p");
+			title.textContent = template.title;
+
+			p1.appendChild(butt1);
+			inner3.appendChild(p1);
+			p2.appendChild(butt2);
+			inner3.appendChild(p2);
+
+			inner2.appendChild(img);
+			inner2.appendChild(inner3);
+			inner2.appendChild(title);
+			inner1.appendChild(inner2);
+			inner0.appendChild(inner1);
+
+			div.appendChild(inner0);
+		}
+
+        //new Date().getTime()
+        //case class EventTime(startTime: DateTime, endTime: Option[DateTime], reminder: Option[DateTime])
+        var templates = [
+            {
+                id: "1",
+                image: "images/Company-Update.png",
+                title: "Company Update",
+                subTitle: "And Rosh Hashana Toast",
+                pushTitle: "Company Update And Rosh Hashana Toast",
+                imageUrl: "http://static.wixstatic.com/media/b2294b_9678f1a31ddf41a6bb6dbc58f2313bd9.gif",
+                content: "Toast the upcoming holidays with us at out next company update! Take a relaxing\nafternoon break, and enjoy a delicious light lunch & drinks. (Link)",
+                location: { title: "Arca, Namal TLV", lat: 32.0884362, long: 34.788183, address: "Arca, Namal TLV" },
+                additionalInfoUrl: "http://wix.com"
+            },
+            {
+                id: "2",
+                image: "images/Winter-Party.png",
+                title: "Wix Winter Party",
+                subTitle: "Come Celebrate All Night Long!",
+                content: "Come Celebrate the upcoming winter & the exiting Hack Week",
+                pushTitle: "Wix Winter Party",
+                imageUrl: "http://static.wixstatic.com/media/b2294b_1bcb865a9dd94c05915f42b201417771.gif",
+                location: { title: "Arca, Namal TLV", lat: 32.0884362, long: 34.788183, address: "Arca, Namal TLV" },
+                additionalInfoUrl: "http://wix.com"
+			},
+			{
+				id: "3",
+				image: "images/Yoga-is-on.png",
+				title: "Yoga is ON!",
+				subTitle: "Every Wednesday Morning Yoga on the roof",
+				content: "",
+				pushTitle: "Yoga every Wednesday",
+				imageUrl: "http://static.wixstatic.com/media/b2294b_8f2aada59948490bb4005d5151e41790.gif",
+				location: { title: "Arca, Namal TLV", lat: 32.0884362, long: 34.788183, address: "Arca, Namal TLV" },
+				additionalInfoUrl: "http://wix.com"
+
+			},
+			{
+				id: "4",
+				image: "images/No-breakfeast.png",
+				title: "No Breakfast",
+				subTitle: "Won't be served tomorrow",
+				content: "",
+				pushTitle: "No Breakfast Tomorrow",
+				imageUrl: "http://static.wixstatic.com/media/b2294b_ce3ed1cc1dca4cfaa7a3e19a525c8df2.png/v1/fill/w_600,h_352,al_c,usm_0.66_1.00_0.01/b2294b_ce3ed1cc1dca4cfaa7a3e19a525c8df2.png",
+				location: { title: "Arca, Namal TLV", lat: 32.0884362, long: 34.788183, address: "Arca, Namal TLV" },
+				additionalInfoUrl: "http://wix.com"
+			},
+			{
+				id: "5",
+				image: "images/No-Weather.png",
+				title: "Nice Weather Outside",
+				subTitle: "It’s great time to grab an ice cream on the roof",
+				content: "",
+				pushTitle: "There's Nice Weather Outside",
+				imageUrl: "https://static.wixstatic.com/media/b2294b_378a014e5a7f4b8893a9abe00d08c7cb.png/v1/fill/w_600,h_352,al_c,usm_0.66_1.00_0.01/b2294b_378a014e5a7f4b8893a9abe00d08c7cb.png",
+				location: { title: "Arca, Namal TLV", lat: 32.0884362, long: 34.788183, address: "Arca, Namal TLV" },
+				additionalInfoUrl: "http://wix.com"
+			},
+//			{
+//				id: "6",
+//				image: "images/gallery6.png",
+//				title: "Star Wars the Movie",
+//				subTitle: "Do you want a free ticket for “Star Wars” movie?",
+//				content: "In a movie theater far, far away, Wix employees will celebrate\nHack Week with a private screening of the latest installment\nof the Star Wars Saga.",
+//				pushTitle: "Free tickets for Star Wars movie",
+//				imageUrl: "http://media.wixapps.net/ggl-117249424865375507781/images/9c6a5b6e67e44368b39653875cb1a720/v1/fit/w_411,h_400,q_75/file.png",
+//				location: { title: "Yes Planet", lat: 32.0884362, long: 34.788183, address: "Yes Planat, Ramat Gan (Ayalon Mall)" },
+//				additionalInfoUrl: "http://wix.com"
+//			},
+			{
+				id: "6",
+				image: "images/Guild-Day.png",
+				title: "UX Guild day tomorrow",
+				subTitle: "It's been a long time since we had a guild day! Yay!",
+				content: "We start our opening session at 9.45! We will split into groups and the team leads\nwill explain more in the opening session. If your name is on this list below\nand for some strange reason you can't make it to our guilday,\nput your armor on and prepare your best excuses before coming to Yuz/me with your\nexplanations. If your name's not on the list and you will make it, let us know\nso we can team you up properly. We have a lot of quality important work to do, so\nplease bring your best vibes and creative minds - it'll be fun!",
+				pushTitle: "UX Guild day Tomorrow",
+				imageUrl: "http://static.wixstatic.com/media/b2294b_95cf75ea05f44b8197361dd53d95e9f9.gif",
+				location: { title: "5th floor conference room", lat: 32.0884362, long: 34.788183, address: "5th floor conference room" },
+				additionalInfoUrl: "http://wix.com"
+
+			},
+			{
+				id: "7",
+				image: "images/Security-Breach.png",
+				title: "Security Breach",
+				subTitle: "Code Red Alert",
+				content: "Wix Infra has been breached by hackers, please DO NOT open any emails.\nFor more information please contact\nDavid Broder 052-1234567\nYaniv Even Haim 053-1234567\nAviran Mordo 054-1234567",
+				pushTitle: "Security Breach - Code Red!!!",
+				imageUrl: "http://static.wixstatic.com/media/b2294b_e3d428edcec04123b543cd4d1891b368.png/v1/fill/w_600,h_352,al_c,usm_0.66_1.00_0.01/b2294b_e3d428edcec04123b543cd4d1891b368.png",
+				location: { title: "5th floor conference room", lat: 32.0884362, long: 34.788183, address: "5th floor conference room" },
+				additionalInfoUrl: "http://wix.com"
+
+			},
+            {
+                id: "8",
+                image: "images/Shakes-wont-be-served.png",
+                title: "Shakes",
+                subTitle: "Won't be served tomorrow",
+                content: "",
+                pushTitle: "Shakes Won't be served tomorrow",
+                imageUrl: "http://static.wixstatic.com/media/b2294b_ba1a394798ae41e68d1f2169e5a09120.png/v1/fill/w_600,h_352,al_c,usm_0.66_1.00_0.01/b2294b_ba1a394798ae41e68d1f2169e5a09120.png",
+                location: { title: "5th floor conference room", lat: 32.0884362, long: 34.788183, address: "5th floor conference room" },
+                additionalInfoUrl: "http://wix.com"
+            }
+
+            /*,
+			{
+				id: "10",
+				image: "images/gallery10.png",
+				title: "Company Update"
+			},
+			{
+				id: "11",
+				image: "images/gallery11.png",
+				title: "Company Update"
+			}*/
+		];
+
+		function openCustomMessages() {
+			window.location.href = "bo.html";
+		}
+
+		function selectTemplateWith(id) {
+			document.getElementById("gallery-item" + id).className="gallery-item selected"
+		}
+
+		function unselectAll() {
+			templates.forEach( function(t) {
+				document.getElementById("gallery-item" + t.id).className="gallery-item"
+			});
+		}
+
+		function collectAudience() {
+			var select = document.getElementById("recipient_group");
+			if (select.selectedIndex > 0) {
+				return select.options[select.selectedIndex].value;
+			}
+			return "WixLife";
+		}
+
+        function findSelectedTemplate() {
+            for(var i = 1; i < templates.length + 1; i++) {
+				if (document.getElementById("gallery-item" + i).className == "gallery-item selected") {
+					return templates[i - 1];
+				}
+            }
+            return null;
+        }
+
+        function isSelected() {
+            return findSelectedTemplate() ? true : false;
+        }
+
+
+		function sendMessage() {
+            if (!isSelected()) {
+                alert("please select message");
+                return;
+            }
+			var template = findSelectedTemplate();
+            var json = {
+				"title": template.title,
+				"subTitle": template.subTitle,
+				"content": template.content,
+				"pushTitle": template.pushTitle,
+				"imageUrl": template.imageUrl,
+				"audience": collectAudience(),
+                "time": {startTime: new Date(), endTime: new Date().addHours(1), reminder: new Date().addMinutes(1) },
+				"timeToLive": "P5M",
+				"location": template.location,
+				"additionalInfoUrl": template.additionalInfoUrl
+			};
+
+			$.ajax({
+				type: "POST",
+				url: 'http://local.wix.com:9000/_api/messages',
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				data: JSON.stringify(json),
+                error: function() {
+                    $('#notification-bar').text('An error occurred');
+                },
+                success: function(data) {
+                    $('#notification-bar').text('The page has been successfully loaded');
+                }
+            });
+            /*
+             success: function(data) {
+             //                    $('#main').html($(data).find('#main *'));
+
+             },
+             error: function() {
+
+             }
+
+             */
+		}
+
+		templates.forEach(function(t) {
+			addTemplate(t);
+		});
+		$('#gallery-items-noam').selectpicker('refresh');
+
+		
+		// Custom Scroll bar
+		(function($){
+			$(window).load(function(){
+				
+				$(".col-content").mCustomScrollbar({
+					setHeight:1000,
+					theme:"minimal-dark"
+				});
+				
+			});
+		})(jQuery);
+	</script>
+  </body>
+</html>

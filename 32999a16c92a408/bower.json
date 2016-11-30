@@ -1,0 +1,44 @@
+{
+  "name": "wix4all",
+  "version": "1.0.0",
+  "main": "dist/scripts/wix4all.js",
+  "ignore": [
+    ".*",
+    "Gemfile*",
+    "Gruntfile.js",
+    "pom.xml",
+    "/*.json",
+    "*.conf.js",
+    "*-conf.js",
+    "app/*",
+    "!app/styles",
+    "test/*",
+    "!test/lib",
+    "dist/bower_components",
+    "dist/concat",
+    "dist/_debug*",
+    "maven",
+    "*.sublime*"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "angular": "~1.4.0",
+    "angular-translate": "~1.1.0",
+    "angular-i18n": "~1.4.0",
+    "es6-shim": "~0.33.13",
+    "uri.js": "~1.13.1",
+    "wix-angular": null,
+    "wix-style": null,
+    "wix-bi-logger": null
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.0",
+    "es5-shim": "~2.1.0"
+  },
+  "resolutions": {
+    "angular": "~1.4.0",
+    "angular-i18n": "~1.4.0",
+    "angular-bootstrap": "~0.11.0"
+
+  }
+}

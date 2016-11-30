@@ -1,0 +1,15 @@
+[
+  {
+    "editorUrl": "http://localhost:3000/js/editor.js",
+    "viewerUrl": "http://localhost:3000/js/viewer.js",
+    "id": "id1",
+    "name": "Amazing Gallery",
+    "poster": "http://static.wixstatic.com/media/0afa896116374df0bb2647ae25eed07a.jpg"
+  },
+    {
+    "editorUrl": "http://bo.wix.com/promote-seo/static/editor-worker.js",
+    "id": "id3",
+    "name": "wix-promote-seo",    
+    "poster": "http://wix-wpblog1-wix-com.s3.amazonaws.com/blog/wp-content/uploads/2014/09/07110921/12-seo-boosts8.jpg"
+  }
+]

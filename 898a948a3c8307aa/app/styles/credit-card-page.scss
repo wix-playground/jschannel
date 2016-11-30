@@ -1,0 +1,489 @@
+@import '../../.tmp/styles/payment-svg-font-icons';
+@import 'compass/css3/user-interface';
+@import 'common';
+
+$enable-wix-style-css: true;
+
+$font-size-ss: 14px;
+$font-size-s: 15px;
+$font-size-m: 16px;
+$font-size-l: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 22px;
+
+$payment-color: #02455e;
+$h3-font-size: 20px;
+$h3-font-size-mobile: 22px;
+$label-font-size: 14px;
+$label-font-size-mobile: 14px;
+$error-label-font-size: 18px;
+$error-label-font-size-mobile: 14px;
+$label-color: #577083;
+$error-color: #ee5951;
+$border-color: #dce5e9;
+$border-color-focused: #4eb7f5;
+$input-background-color: #ffffff;
+$input-background-color-hover: #eaf7ff;
+$input-color: #213340;
+$input-placeholder-color: #577083;
+$input-font-size-mobile: 18px;
+$input-line-height-mobile: 26px;
+$select-font-size-mobile: 18px;
+$btn-color: #3899ec;
+$btn-color-hover: #4eb7f5;
+$btn-font-color: #ffffff;
+$error-background-color: #fdefee;
+$general-error-background-color: #f67e7e;
+$general-error-color: #ffffff;
+$body-font: "HelveticaNeueW01-45Ligh", "HelveticaNeueW02-45Ligh", "HelveticaNeueW10-45Ligh", sans-serif;
+
+%input-class {
+  border: 0;
+  color: $input-color;
+  font-size: $font-size-m;
+  line-height: 18px;
+  text-align: left;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 0 0;
+  background: transparent;
+  outline: none;
+
+  &[type="text"] {
+    @include input-placeholder {
+      color: $input-placeholder-color;
+    }
+  }
+}
+
+%inline-block {
+  display: inline-block;
+  vertical-align: top;
+}
+
+body {
+  color: $payment-color;
+  margin: 0;
+}
+
+body,
+input,
+button {
+  font-family: $body-font;
+}
+
+.ignore-white-spaces {
+  font-size: 0;
+}
+
+.card-validation-error {
+  background-color: $general-error-background-color;
+  color: $general-error-color;
+  padding: 18px;
+  text-align: left;
+  font-size: $font-size-l;
+  line-height: $font-size-l;
+
+  .card-validation-error-title {
+    margin: 0;
+  }
+
+  @media only screen and (max-device-width: 1024px) {
+    font-size: $font-size-s;
+  }
+}
+
+.payment-form {
+  fieldset {
+    > div:last-of-type {
+      border-bottom: 1px solid $border-color;
+    }
+
+    @media only screen and (min-device-width: 1025px) {
+      > div:first-of-type {
+        border-top: 0;
+      }
+    }
+  }
+}
+
+.wix-payment-h3 {
+  font-size: $h3-font-size;
+
+  @media only screen and (max-device-width: 1024px) {
+    font-size: $h3-font-size-mobile;
+  }
+}
+
+label,
+.wix-payment-invalid-form-input-label {
+  font-size: $label-font-size;
+  color: $label-color;
+  line-height: 12px;
+}
+
+label {
+
+  @media only screen and (max-device-width: 1024px) {
+    font-size: $label-font-size-mobile;
+  }
+}
+
+.wix-payment-invalid-form-input-label {
+  color: $error-color;
+}
+
+.wix-payment-expiration-date-wrap {
+
+  .expiration-month,
+  .expiration-year {
+    width: 28px;
+    box-sizing: border-box;
+    text-align: left;
+
+    @media only screen and (max-device-width: 1024px) {
+      width: 35px;
+    }
+  }
+
+  .expiration-month {
+    margin-right: 0;
+  }
+
+  .expiration-year {
+    width: 58px;
+  }
+
+  .seperator {
+    color: $label-color;
+    font-size: $label-font-size;
+
+    margin-right: 3px;
+
+    @media only screen and (max-device-width: 1024px) {
+      font-size: 22px;
+    }
+  }
+}
+
+.wix-payment-form-row {
+  width: 100%;
+  border-top: 1px solid $border-color;
+  position: relative;
+
+  &:last-child {
+    border-bottom: 1px solid $border-color;
+  }
+
+  &.expiration-row {
+    float: left;
+    padding: 0;
+
+    .validation-wrap {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  &.expiration-row:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-right: 1px solid $border-color;
+  }
+
+  &.name-on-card {
+    clear: both;
+  }
+}
+
+.validation-wrap {
+  position: relative;
+  box-sizing: border-box;
+
+  .form-label,
+  .wix-payment-invalid-form-input-label {
+    display: none;
+  }
+
+  .wix-payment-invalid-form-input-label {
+    position: relative;
+    padding: 9px 16px;
+    margin: 2px;
+    background-color: $error-background-color;
+    box-sizing: border-box;
+
+    &:after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      border: 10px solid transparent;
+      border-bottom-color: $error-background-color;
+      top: -19px;
+      left: 63px;
+    }
+
+    @media only screen and (max-device-width: 1024px) {
+      font-size: $error-label-font-size-mobile;
+      padding-left: 12px;
+      padding-right: 6px;
+      margin: 2px;
+      line-height: 16px;
+    }
+  }
+
+  &.wix-payment-security-number-wrap {
+    .wix-payment-invalid-form-input-label {
+      right: -10px;
+      left: 1px;
+
+      @media only screen and (max-device-width: 1024px) {
+        right: 2px;
+      }
+    }
+  }
+
+  &.required-valid,
+  &.has-focus {
+
+    .wix-payment-input-container {
+      margin-top: 0;
+    }
+
+    .form-label {
+      display: block;
+    }
+
+    input {
+      @media only screen and (max-device-width: 1024px) {
+        padding-top: 8px;
+      }
+    }
+  }
+
+  &.invalid.wix-payment-expiration-date-wrap,
+  &.invalid.wix-payment-security-number-wrap,
+  &.invalid.name-on-card,
+  &.invalid.payment-method,
+  &.invalid-potential.payment-method {
+
+    .wix-payment-invalid-form-input-label {
+      display: block;
+    }
+  }
+
+  .inner-wrap {
+
+    .security-label {
+      padding-right: 16px;
+    }
+
+    @media only screen and (min-device-width: 1025px) {
+      height: 36px;
+      padding: 20px;
+    }
+
+    @media only screen and (max-device-width: 1024px) {
+      height: 42px;
+      padding: 20px 16px;
+    }
+  }
+}
+
+.submit-wrap {
+  display: block;
+  @media only screen and (max-device-width: 1024px) {
+    margin: 0 20px;
+
+  }
+}
+
+.wix-payment-button-primary {
+  border-radius: 20px;
+  border-width: 0;
+  background-color: $btn-color;
+  height: 42px;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  margin: 30px 24px 12px;
+  padding: 0 70px;
+  color: $btn-font-color;
+
+  &:hover {
+    background: $btn-color-hover;
+  }
+
+  &:disabled {
+    background-color: $btn-color-disabled;
+    cursor: default;
+  }
+
+  &:before {
+    vertical-align: top;
+    margin-right: 7px;
+  }
+
+  @media only screen and (max-device-width: 1024px) {
+    //height: $input-height-mobile;
+    margin: 36px auto 18px;
+    width: 100%;
+    float: none;
+    padding: 0;
+    font-size: 20px;
+    height: 48px;
+    border-radius: 30px;
+  }
+}
+
+.wix-payment-input-container {
+
+  input {
+    @extend %input-class;
+
+    @media only screen and (max-device-width: 1024px) {
+      font-size: $input-font-size-mobile;
+      line-height: $input-line-height-mobile;
+    }
+  }
+
+  @media only screen and (max-device-width: 1024px) {
+    //height: 50px;
+    margin-top: 0;
+  }
+
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.credit-card-container {
+  position: relative;
+
+  &.none {
+    &:after {
+      //background-image: url('../images/none.svg');
+      border: 0;
+    }
+  }
+
+  &.visa {
+    &:after {
+      background-image: url('../images/visa.svg');
+    }
+  }
+
+  &.amex {
+    &:after {
+      background-image: url('../images/amex.svg');
+    }
+  }
+
+  &.dankort {
+    &:after {
+      background-image: url('../images/dankort.svg');
+    }
+  }
+
+  &.diners {
+    &:after {
+      background-image: url('../images/diners.svg');
+    }
+  }
+
+  &.discover {
+    &:after {
+      background-image: url('../images/discover.svg');
+    }
+  }
+
+  &.isracard {
+    &:after {
+      background-image: url('../images/isracard.svg');
+    }
+  }
+
+  &.jcb {
+    &:after {
+      background-image: url('../images/jcb.svg');
+    }
+  }
+
+  &.maestro {
+    &:after {
+      background-image: url('../images/maestro.svg');
+    }
+  }
+
+  &.mastercard {
+    &:after {
+      background-image: url('../images/mastercard.svg');
+    }
+  }
+
+  &.unionpay {
+    &:after {
+      background-image: url('../images/unionpay.svg');
+    }
+  }
+
+  &:after {
+    content: '';
+    width: 38px;
+    right: 0;
+    height: 26px;
+    position: absolute;
+    background-repeat: no-repeat;
+    z-index: 100;
+    top: -17px;
+    border: 1px solid $border-color;
+
+    @media only screen and (max-device-width: 1024px) {
+      width: 45px;
+      height: 30px;
+      right: 8px;
+    }
+  }
+}
+
+.payment-svg-font-icons-lock {
+
+  position: relative;
+
+  &:before {
+    content: '\f101';
+    color: $btn-font-color;
+    font-size: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+  }
+}
+
+@include wcsh-wix-terms-and-conditions;
+
+.wix-payment-terms-and-conditions {
+  float: right;
+  padding-right: 12px;
+  padding-left: 0;
+  width: initial;
+}
+
+.wix-security-code-content {
+
+  @include wcsh-security-tooltip-wrapper(12px);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+@include wcsh-security-code-tooltip;

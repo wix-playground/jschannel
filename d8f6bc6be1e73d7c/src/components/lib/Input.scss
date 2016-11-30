@@ -1,0 +1,35 @@
+@import './Base';
+
+.main {
+  position: relative;
+  padding-top: 1px;
+
+  > input {
+    @extend .input;
+  }
+  > textarea {
+    @extend .textarea;
+    margin-top: 20px;
+    padding: $input-textarea-spacing-top;
+  }
+  > label {
+    @include label();
+  }
+  &[data-empty] > input {
+    &:not(:focus) + label {
+      @include labelOverlay();
+    }
+  }
+  &[data-error] {
+    > input {
+      border-color: $color-error;
+      background-image: url('assets/error.svg');
+      background-repeat: no-repeat;
+      background-size: 25px;
+      background-position: right 50%;
+    }
+    > div {
+      @include error();
+    } 
+  }
+}

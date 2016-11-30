@@ -1,0 +1,14 @@
+<!doctype html>
+<head>
+  <title><%= title %></title>
+  <%- newrelic %>
+  <link rel="stylesheet" href="<%= baseStaticUrl %>assets/style.css">
+  <link rel="stylesheet" href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css' />
+  <script>window.APP_PROPS = <%- props %></script>
+  <script src='//static.parastorage.com/services/js-platform-editor-sdk/1.37.0/lib/editorSDK.min.js'></script>
+</head>
+<body>
+  <div id="content"><%- body %></div>
+  <script src="<%= baseStaticUrl %>app.bundle.js"></script>
+</body>
+</html>

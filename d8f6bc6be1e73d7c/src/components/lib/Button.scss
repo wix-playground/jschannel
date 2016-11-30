@@ -1,0 +1,67 @@
+@import 'src/styles/global';
+
+$button-color: #ffffff;
+$button-font-family: $font-base;
+$button-background: #2390ee;
+$button-background_hover: #4eb7f5;
+$button-background_disabled: #bdddfa;
+$button-border-radius: 99999px;
+$button-width: 150px;
+
+.disabled {
+    background: $button-background_disabled;
+    cursor: default;
+}
+
+.button {
+  font-size: $button-font-size;
+  font-family: $button-font-family;
+  font-weight: 100;
+  color: $button-color;
+  background: $button-background;
+  border-radius: $button-border-radius;
+  padding: $button-padding;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  white-space: nowrap;
+  width: $button-width;
+  display: inline-block;
+
+  &:hover,
+  &:active {
+    background: $button-background_hover;
+  }
+
+  &[disabled], &[data-disabled] {
+    &, &:hover, &:active {
+      @extend .disabled;
+    }
+  }
+}
+
+.outlinedButton {
+  @extend .button;
+  &, &:active {
+    background: none;
+    border: 1px solid #3899ec;
+    color: #459fed;
+  }
+  &:hover {
+    background: rgb(234, 243, 253);
+  }
+}
+
+.linklikeButton {
+  @extend .button;
+  & {
+    background: none;
+    color: #459fed;
+  }
+  &:hover, &:active {
+    background: none;
+  }
+}
