@@ -1,6 +1,6 @@
 {
   "name": "js-channel",
-  "version": "1.0.972",
+  "version": "1.0.973",
   "lockfileVersion": 1,
   "dependencies": {
     "any-promise": {
