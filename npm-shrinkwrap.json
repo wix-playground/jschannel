@@ -1,6 +1,6 @@
 {
   "name": "js-channel",
-  "version": "1.0.1111",
+  "version": "1.0.1112",
   "dependencies": {
     "any-promise": {
       "version": "1.3.0",
