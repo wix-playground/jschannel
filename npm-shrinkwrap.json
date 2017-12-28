@@ -1,6 +1,6 @@
 {
   "name": "js-channel",
-  "version": "1.0.1295",
+  "version": "1.0.1296",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -26,14 +26,14 @@
       "dev": true
     },
     "bower-auto-release": {
-      "version": "1.1.13",
-      "resolved": "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/bower-auto-release/-/bower-auto-release-1.1.13.tgz",
-      "integrity": "sha1-BBve0WrkENX1XFo3amnfDCG8VSo=",
+      "version": "1.1.16",
+      "resolved": "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/bower-auto-release/-/bower-auto-release-1.1.16.tgz",
+      "integrity": "sha1-V5qBFiwQ21wfKeb6Xvb2Qv0lBA0=",
       "dev": true,
       "requires": {
         "bower": "1.8.2",
         "command-line-args": "3.0.5",
-        "wnpm-ci": "6.2.52"
+        "wnpm-ci": "6.2.53"
       }
     },
     "command-line-args": {
@@ -99,9 +99,9 @@
       "dev": true
     },
     "wnpm-ci": {
-      "version": "6.2.52",
-      "resolved": "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/wnpm-ci/-/wnpm-ci-6.2.52.tgz",
-      "integrity": "sha1-vosiHcBh6soLBCYSMQXT+kRwuqc=",
+      "version": "6.2.53",
+      "resolved": "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/wnpm-ci/-/wnpm-ci-6.2.53.tgz",
+      "integrity": "sha1-IWcnSc64ye79WgAO6dTh79xOvhY=",
       "dev": true,
       "requires": {
         "shelljs": "0.5.3",
