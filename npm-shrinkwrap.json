@@ -1,6 +1,6 @@
 {
   "name": "js-channel",
-  "version": "1.0.1310",
+  "version": "1.0.1311",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -26,9 +26,9 @@
       "dev": true
     },
     "bower-auto-release": {
-      "version": "1.1.17",
-      "resolved": "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/bower-auto-release/-/bower-auto-release-1.1.17.tgz",
-      "integrity": "sha1-j5X2eciIUU/EkyWAVucdgl8+lQ4=",
+      "version": "1.1.18",
+      "resolved": "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/bower-auto-release/-/bower-auto-release-1.1.18.tgz",
+      "integrity": "sha1-SPJEfQIUERuc13iHc6vd0Ai2z74=",
       "dev": true,
       "requires": {
         "bower": "1.8.2",
