@@ -1,6 +1,6 @@
 {
   "name": "js-channel",
-  "version": "1.0.1417",
+  "version": "1.0.1418",
   "description": "jschannel by mozilla published on npm & bower",
   "main": "src/jschannel.js",
   "scripts": {
