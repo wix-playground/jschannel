@@ -1,6 +1,6 @@
 {
   "name": "js-channel",
-  "version": "1.0.1492",
+  "version": "1.0.1493",
   "description": "jschannel by mozilla published on npm & bower",
   "main": "src/jschannel.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "wnpm-ci": "*"
   },
   "dependencies": {},
-  "private": true,
+  "private": false,
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   }
