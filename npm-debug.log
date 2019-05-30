@@ -1,0 +1,70 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'show',
+1 verbose cli   '@wix/js-channel',
+1 verbose cli   'version' ]
+2 info using npm@3.10.10
+3 info using node@v6.17.1
+4 silly mapToRegistry name @wix/js-channel
+5 silly mapToRegistry scope (from package name) @wix
+6 verbose mapToRegistry no registry URL found in name for scope @wix
+7 silly mapToRegistry using default registry
+8 silly mapToRegistry registry http://npm.dev.wixpress.com/
+9 silly mapToRegistry data Result {
+9 silly mapToRegistry   raw: '@wix/js-channel',
+9 silly mapToRegistry   scope: '@wix',
+9 silly mapToRegistry   escapedName: '@wix%2fjs-channel',
+9 silly mapToRegistry   name: '@wix/js-channel',
+9 silly mapToRegistry   rawSpec: '',
+9 silly mapToRegistry   spec: 'latest',
+9 silly mapToRegistry   type: 'tag' }
+10 silly mapToRegistry uri http://npm.dev.wixpress.com/@wix%2fjs-channel
+11 verbose request uri http://npm.dev.wixpress.com/@wix%2fjs-channel
+12 verbose request always-auth set; sending authorization
+13 info attempt registry request try #1 at 10:45:40 AM
+14 verbose request id a8c1a02efe457907
+15 http request GET http://npm.dev.wixpress.com/@wix%2fjs-channel
+16 http 404 http://npm.dev.wixpress.com/@wix%2fjs-channel
+17 verbose headers { date: 'Thu, 30 May 2019 10:45:41 GMT',
+17 verbose headers   'content-type': 'application/json',
+17 verbose headers   'transfer-encoding': 'chunked',
+17 verbose headers   connection: 'keep-alive',
+17 verbose headers   server: 'Artifactory/6.9.2',
+17 verbose headers   'x-artifactory-id': 'd266e6fc7909ce4a64ede67d740ca6a827079066',
+17 verbose headers   'x-artifactory-node-id': 'art2c',
+17 verbose headers   'content-encoding': 'gzip' }
+18 silly get cb [ 404,
+18 silly get   { date: 'Thu, 30 May 2019 10:45:41 GMT',
+18 silly get     'content-type': 'application/json',
+18 silly get     'transfer-encoding': 'chunked',
+18 silly get     connection: 'keep-alive',
+18 silly get     server: 'Artifactory/6.9.2',
+18 silly get     'x-artifactory-id': 'd266e6fc7909ce4a64ede67d740ca6a827079066',
+18 silly get     'x-artifactory-node-id': 'art2c',
+18 silly get     'content-encoding': 'gzip' } ]
+19 verbose stack Error: 404 Not Found: @wix/js-channel
+19 verbose stack     at makeError (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+19 verbose stack     at CachingRegistryClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:288:14)
+19 verbose stack     at /usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:216:7
+19 verbose stack     at Gunzip.onEnd (zlib.js:227:5)
+19 verbose stack     at emitNone (events.js:91:20)
+19 verbose stack     at Gunzip.emit (events.js:185:7)
+19 verbose stack     at endReadableNT (_stream_readable.js:978:12)
+19 verbose stack     at _combinedTickCallback (internal/process/next_tick.js:80:11)
+19 verbose stack     at process._tickCallback (internal/process/next_tick.js:104:9)
+20 verbose statusCode 404
+21 verbose pkgid @wix/js-channel
+22 verbose cwd /home/builduser/agent00/work/d37bb3db8b76fe3e
+23 error Linux 4.9.0-0.bpo.4-amd64
+24 error argv "/usr/bin/node" "/usr/bin/npm" "show" "@wix/js-channel" "version"
+25 error node v6.17.1
+26 error npm  v3.10.10
+27 error code E404
+28 error 404 Not Found: @wix/js-channel
+29 error 404
+30 error 404 '@wix/js-channel' is not in the npm registry.
+31 error 404 You should bug the author to publish it (or use the name yourself!)
+32 error 404 Note that you can also install from a
+33 error 404 tarball, folder, http url, or git url.
+34 verbose exit [ 1, true ]
