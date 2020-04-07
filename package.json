@@ -21,7 +21,7 @@
     "wnpm-ci": "*"
   },
   "dependencies": {},
-  "private": false,
+  "private": true,
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   }
